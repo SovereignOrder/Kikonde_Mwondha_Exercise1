@@ -1,5 +1,5 @@
 package exercise1;
-
+import java.util.Random;
 /**
  * A class that models playing card Objects. Cards have 
  * a value (note that Ace = 1, Jack = 11, Queen = 12, King = 13)
@@ -8,7 +8,7 @@ package exercise1;
  * This code is to be used in ICE1. When you create your own branch,
  * add your name as a modifier.
  * @author dancye
- * @author Paul Bonenfant May 2020
+ * @author Kikonde Mwondha October 5 2026
  */
 public class Card {
 
