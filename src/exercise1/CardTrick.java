@@ -64,6 +64,7 @@ public class CardTrick {
         System.out.println("Card not found.");
     }
 
+    // I'm done!
     private static void printInfo() {
 
         System.out.println("Congratulations, you guessed right!");
