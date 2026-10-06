@@ -37,34 +37,32 @@ public class CardTrick {
 
         System.out.print("Pick a suit (1-Hearts, 2-Diamonds, 3-Spades, 4-Clubs):  ");
         int userSuit = in.nextInt();
-        
+
         // Create User Card
         Card userCard = new Card();
-        
+
         userCard.setValue(userValue);
         userCard.setSuit(Card.SUITS[userSuit - 1]);
-        
+
         // Search
         boolean found = false;
         for (int i = 0; i < hand.length; i++) {
+            System.out.println(
+                    hand[i].getValue() + " of " + hand[i].getSuit());
             if (userCard.getValue() == hand[i].getValue()
                     && userCard.getSuit().equals(hand[i].getSuit())) {
-                
+
                 found = true;
-                printInfo();
                 break;
             }
+        }
+        System.out.println("-".repeat(80));
+        if (found) {
+            printInfo();
             
         }
-        if (!found) {
-                System.out.println("Card not found.");
-            }
+        System.out.println("Card not found.");
     }
-       
-       
-
-  
-    
 
     private static void printInfo() {
 
