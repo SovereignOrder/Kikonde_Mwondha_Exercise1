@@ -1,6 +1,7 @@
 package exercise1;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * A class that fills a hand of 7 cards with random Card Objects and then asks
@@ -17,20 +18,54 @@ public class CardTrick {
         Random random = new Random();
         Card[] hand = new Card[7];
 
+        // Builds User Hand
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
             card.setValue(random.nextInt(13) + 1);
-            
-            card.setSuit(Card.SUITS[random.nextInt(Card.SUITS.length)]);
-            
-            hand[i] = card;
-    }
 
-    /**
-     * A simple method to print out personal information. Follow the instructions to 
-     * replace this information with your own.
-     * @author Paul Bonenfant Jan 2022
-     */
+            card.setSuit(Card.SUITS[random.nextInt(Card.SUITS.length)]);
+
+            hand[i] = card;
+
+        } // End of For Loop
+
+        // Ask User To Pick a Card
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Pick a card value (1-13):  ");
+        int userValue = in.nextInt();
+
+        System.out.print("Pick a suit (1-Hearts, 2-Diamonds, 3-Spades, 4-Clubs):  ");
+        int userSuit = in.nextInt();
+        
+        // Create User Card
+        Card userCard = new Card();
+        
+        userCard.setValue(userValue);
+        userCard.setSuit(Card.SUITS[userSuit - 1]);
+        
+        // Search
+        boolean found = false;
+        for (int i = 0; i < hand.length; i++) {
+            if (userCard.getValue() == hand[i].getValue()
+                    && userCard.getSuit().equals(hand[i].getSuit())) {
+                
+                found = true;
+                printInfo();
+                break;
+            }
+            
+        }
+        if (!found) {
+                System.out.println("Card not found.");
+            }
+    }
+       
+       
+
+  
+    
+
     private static void printInfo() {
 
         System.out.println("Congratulations, you guessed right!");
